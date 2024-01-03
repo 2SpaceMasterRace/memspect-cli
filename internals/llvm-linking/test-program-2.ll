@@ -1,5 +1,5 @@
-; ModuleID = '/home/dopa/Projects/memspect-cli/internals/llvm-linking/test-program.c'
-source_filename = "/home/dopa/Projects/memspect-cli/internals/llvm-linking/test-program.c"
+; ModuleID = '/home/dopa/Projects/memspect-cli/internals/llvm-linking/abstraction/test-program-2.c'
+source_filename = "/home/dopa/Projects/memspect-cli/internals/llvm-linking/abstraction/test-program-2.c"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -14,13 +14,17 @@ define dso_local i32 @sum_of_square(i32 noundef %0, i32 noundef %1) #0 {
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
   %7 = load i32, ptr %4, align 4
-  %8 = load i32, ptr %5, align 4
-  %9 = add nsw i32 %7, %8
-  store i32 %9, ptr %6, align 4
-  %10 = load i32, ptr %6, align 4
-  %11 = call i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %10)
-  %12 = load i32, ptr %3, align 4
-  ret i32 %12
+  %8 = load i32, ptr %4, align 4
+  %9 = mul nsw i32 %7, %8
+  %10 = load i32, ptr %5, align 4
+  %11 = load i32, ptr %5, align 4
+  %12 = mul nsw i32 %10, %11
+  %13 = add nsw i32 %9, %12
+  store i32 %13, ptr %6, align 4
+  %14 = load i32, ptr %6, align 4
+  %15 = call i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %14)
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 declare i32 @printf(ptr noundef, ...) #1
@@ -33,7 +37,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
   store i32 0, ptr %3, align 4
   store i32 %0, ptr %4, align 4
   store ptr %1, ptr %5, align 8
-  %6 = call i32 @sum_of_square(i32 noundef 10, i32 noundef 20)
+  %6 = call i32 @sum_of_square(i32 noundef 4, i32 noundef 3)
   ret i32 %6
 }
 
