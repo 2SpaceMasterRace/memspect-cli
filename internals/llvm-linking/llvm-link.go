@@ -44,16 +44,7 @@ func main() {
 
 			irFilePath := filepath.Join(filepath.Dir(cFile), filepath.Base(cFile)+".ll")
 
-			outputFile, err := os.Create(irFilePath)
-			if err != nil {
-				fmt.Printf("Error in creating IR file for %s: %s\n", cFile, err)
-				return
-			}
-			defer outputFile.Close()
-
 			cmd := exec.Command("clang", "-S", "-emit-llvm", cFile)
-			cmd.Stdout = outputFile
-
 			err = cmd.Run()
 			if err != nil {
 				fmt.Printf("Error generating IR for %s: %s\n", cFile, err)
