@@ -5,7 +5,7 @@ blazingly fast memory debugger in large codebases, a minimal more powerful versi
 
 - [ ] LLVM Module Linking Integration
 
-      - generate per module IR files together and parse functions and variables of program(s)
+       - generate per module IR files together and parse functions and variables of program(s)
                      
        - build a module dependency graph for verification of dependencies (optional for now)
                      
