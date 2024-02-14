@@ -1,0 +1,12 @@
+digraph "CFG for 'factorial' function" {
+	label="CFG for 'factorial' function";
+
+	Node0x5c6511b97cf0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%1:\l  %2 = alloca i64, align 8\l  %3 = alloca i64, align 8\l  store i64 %0, ptr %2, align 8\l  store i64 1, ptr %3, align 8\l  br label %4\l}"];
+	Node0x5c6511b97cf0 -> Node0x5c6511b99a90;
+	Node0x5c6511b99a90 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%4:\l4:                                                \l  %5 = load i64, ptr %2, align 8\l  %6 = icmp sgt i64 %5, 0\l  br i1 %6, label %7, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x5c6511b99a90:s0 -> Node0x5c6511b99c10;
+	Node0x5c6511b99a90:s1 -> Node0x5c6511b99c60;
+	Node0x5c6511b99c10 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%7:\l7:                                                \l  %8 = load i64, ptr %3, align 8\l  %9 = load i64, ptr %2, align 8\l  %10 = mul nsw i64 %8, %9\l  store i64 %10, ptr %3, align 8\l  %11 = load i64, ptr %2, align 8\l  %12 = sub nsw i64 %11, 1\l  store i64 %12, ptr %2, align 8\l  br label %4, !llvm.loop !6\l}"];
+	Node0x5c6511b99c10 -> Node0x5c6511b99a90;
+	Node0x5c6511b99c60 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%13:\l13:                                               \l  %14 = load i64, ptr %3, align 8\l  ret i64 %14\l}"];
+}

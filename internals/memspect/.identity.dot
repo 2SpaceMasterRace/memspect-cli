@@ -1,0 +1,32 @@
+digraph "CFG for 'identity' function" {
+	label="CFG for 'identity' function";
+
+	Node0x5c6511b9ade0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#88abfd70",label="{%2:\l  %3 = alloca ptr, align 8\l  %4 = alloca i32, align 4\l  %5 = alloca i32, align 4\l  %6 = alloca i32, align 4\l  store ptr %0, ptr %3, align 8\l  store i32 %1, ptr %4, align 4\l  store i32 0, ptr %5, align 4\l  br label %7\l}"];
+	Node0x5c6511b9ade0 -> Node0x5c6511b9b220;
+	Node0x5c6511b9b220 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%7:\l7:                                                \l  %8 = load i32, ptr %5, align 4\l  %9 = load i32, ptr %4, align 4\l  %10 = icmp slt i32 %8, %9\l  br i1 %10, label %11, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x5c6511b9b220:s0 -> Node0x5c6511b9af40;
+	Node0x5c6511b9b220:s1 -> Node0x5c6511b9b4e0;
+	Node0x5c6511b9af40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%11:\l11:                                               \l  store i32 0, ptr %6, align 4\l  br label %12\l}"];
+	Node0x5c6511b9af40 -> Node0x5c6511b9b6b0;
+	Node0x5c6511b9b6b0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%12:\l12:                                               \l  %13 = load i32, ptr %6, align 4\l  %14 = load i32, ptr %4, align 4\l  %15 = icmp slt i32 %13, %14\l  br i1 %15, label %16, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x5c6511b9b6b0:s0 -> Node0x5c6511b9b8e0;
+	Node0x5c6511b9b6b0:s1 -> Node0x5c6511b9b930;
+	Node0x5c6511b9b8e0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%16:\l16:                                               \l  %17 = load ptr, ptr %3, align 8\l  %18 = load i32, ptr %5, align 4\l  %19 = sext i32 %18 to i64\l  %20 = getelementptr inbounds ptr, ptr %17, i64 %19\l  %21 = load ptr, ptr %20, align 8\l  %22 = load i32, ptr %6, align 4\l  %23 = sext i32 %22 to i64\l  %24 = getelementptr inbounds i32, ptr %21, i64 %23\l  store i32 0, ptr %24, align 4\l  br label %25\l}"];
+	Node0x5c6511b9b8e0 -> Node0x5c6511b9be50;
+	Node0x5c6511b9be50 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%25:\l25:                                               \l  %26 = load i32, ptr %6, align 4\l  %27 = add nsw i32 %26, 1\l  store i32 %27, ptr %6, align 4\l  br label %12, !llvm.loop !6\l}"];
+	Node0x5c6511b9be50 -> Node0x5c6511b9b6b0;
+	Node0x5c6511b9b930 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%28:\l28:                                               \l  br label %29\l}"];
+	Node0x5c6511b9b930 -> Node0x5c6511b9c210;
+	Node0x5c6511b9c210 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%29:\l29:                                               \l  %30 = load i32, ptr %5, align 4\l  %31 = add nsw i32 %30, 1\l  store i32 %31, ptr %5, align 4\l  br label %7, !llvm.loop !8\l}"];
+	Node0x5c6511b9c210 -> Node0x5c6511b9b220;
+	Node0x5c6511b9b4e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#88abfd70",label="{%32:\l32:                                               \l  store i32 0, ptr %5, align 4\l  br label %33\l}"];
+	Node0x5c6511b9b4e0 -> Node0x5c6511b9c870;
+	Node0x5c6511b9c870 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%33:\l33:                                               \l  %34 = load i32, ptr %5, align 4\l  %35 = load i32, ptr %4, align 4\l  %36 = icmp slt i32 %34, %35\l  br i1 %36, label %37, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x5c6511b9c870:s0 -> Node0x5c6511b9caa0;
+	Node0x5c6511b9c870:s1 -> Node0x5c6511b9caf0;
+	Node0x5c6511b9caa0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%37:\l37:                                               \l  %38 = load ptr, ptr %3, align 8\l  %39 = load i32, ptr %5, align 4\l  %40 = sext i32 %39 to i64\l  %41 = getelementptr inbounds ptr, ptr %38, i64 %40\l  %42 = load ptr, ptr %41, align 8\l  %43 = load i32, ptr %6, align 4\l  %44 = sext i32 %43 to i64\l  %45 = getelementptr inbounds i32, ptr %42, i64 %44\l  store i32 1, ptr %45, align 4\l  br label %46\l}"];
+	Node0x5c6511b9caa0 -> Node0x5c6511b9d0a0;
+	Node0x5c6511b9d0a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%46:\l46:                                               \l  %47 = load i32, ptr %5, align 4\l  %48 = add nsw i32 %47, 1\l  store i32 %48, ptr %5, align 4\l  br label %33, !llvm.loop !9\l}"];
+	Node0x5c6511b9d0a0 -> Node0x5c6511b9c870;
+	Node0x5c6511b9caf0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#88abfd70",label="{%49:\l49:                                               \l  ret void\l}"];
+}
