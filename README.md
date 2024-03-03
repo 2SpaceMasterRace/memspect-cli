@@ -1,9 +1,9 @@
 # Memspect-cli
-blazingly fast memory debugger in large codebases, a minimal more powerful version of valgrind.
+This project is a demonstration of memory debugging in C codebases using PCA. Under progress for now, a proper documentation will be worked on soon enough.
 
                                             ```ROADMAP```
 
-- [ ] LLVM Module Linking Integration
+- [x] LLVM Module Linking Integration
 
        - generate per module IR files together and parse functions and variables of program(s)
                      
