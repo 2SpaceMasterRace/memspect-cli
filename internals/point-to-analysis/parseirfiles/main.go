@@ -248,4 +248,26 @@ func main(){
 		fmt.Println(files)
 		parseirfiles(filepath,files)
 	}
+
+	graph := buildGraph(pointsToSets)
+
+    file, err := os.Create("graph.dot")
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer file.Close()
+
+    err = dot.Render(graph, "png", file)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
+    cmd := exec.Command("open", "graph.dot.png")
+    err = cmd.Run()
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
 }
