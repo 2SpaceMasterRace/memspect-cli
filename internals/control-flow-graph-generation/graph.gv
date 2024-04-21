@@ -1,0 +1,110 @@
+strict digraph {
+
+
+	"func{main}  %8 = call i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %7)" [  weight=0 ];
+
+	"func{main}  %8 = call i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %7)" -> "func{main}  ret i32 0" [  weight=0 ];
+
+	"func{@add}  %7 = load i32, ptr %4, align 4" [  weight=0 ];
+
+	"func{@add}  %7 = load i32, ptr %4, align 4" -> "func{@add}  %8 = add nsw i32 %6, %7" [  weight=0 ];
+
+	"func{@add}  store i32 %1, ptr %4, align 4" [  weight=0 ];
+
+	"func{@add}  store i32 %1, ptr %4, align 4" -> "func{@add}  %6 = load i32, ptr %3, align 4" [  weight=0 ];
+
+	"func{main}  %2 = alloca i32, align 4" [  weight=0 ];
+
+	"func{main}  %2 = alloca i32, align 4" -> "func{main}  %3 = alloca i32, align 4" [  weight=0 ];
+
+	"func{main}  %4 = load i32, ptr %1, align 4" [  weight=0 ];
+
+	"func{main}  %4 = load i32, ptr %1, align 4" -> "func{main}  %5 = load i32, ptr %2, align 4" [  weight=0 ];
+
+	"func{main}  %3 = alloca i32, align 4" [  weight=0 ];
+
+	"func{main}  %3 = alloca i32, align 4" -> "func{main}  store i32 5, ptr %1, align 4" [  weight=0 ];
+
+	"func{@add}  %6 = load i32, ptr %3, align 4" [  weight=0 ];
+
+	"func{@add}  %6 = load i32, ptr %3, align 4" -> "func{@add}  %7 = load i32, ptr %4, align 4" [  weight=0 ];
+
+	"func{main}  %1 = alloca i32, align 4" [  weight=0 ];
+
+	"func{main}  %1 = alloca i32, align 4" -> "func{main}  %2 = alloca i32, align 4" [  weight=0 ];
+
+	"func{@add}  store i32 %0, ptr %3, align 4" [  weight=0 ];
+
+	"func{@add}  store i32 %0, ptr %3, align 4" -> "func{@add}  store i32 %1, ptr %4, align 4" [  weight=0 ];
+
+	"@add(i32 noundef %0, i32 noundef %1) " [  weight=0 ];
+
+	"@add(i32 noundef %0, i32 noundef %1) " -> "func{@add}  %3 = alloca i32, align 4" [  weight=0 ];
+
+	"func{@add}  %8 = add nsw i32 %6, %7" [  weight=0 ];
+
+	"func{@add}  %8 = add nsw i32 %6, %7" -> "func{@add}  store i32 %8, ptr %5, align 4" [  weight=0 ];
+
+	"func{@add}  %3 = alloca i32, align 4" [  weight=0 ];
+
+	"func{@add}  %3 = alloca i32, align 4" -> "func{@add}  %4 = alloca i32, align 4" [  weight=0 ];
+
+	"func{main}  store i32 5, ptr %1, align 4" [  weight=0 ];
+
+	"func{main}  store i32 5, ptr %1, align 4" -> "func{main}  store i32 5, ptr %2, align 4" [  weight=0 ];
+
+	"func{main}  %7 = load i32, ptr %3, align 4" [  weight=0 ];
+
+	"func{main}  %7 = load i32, ptr %3, align 4" -> "func{main}  %8 = call i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %7)" [  weight=0 ];
+
+	"func{@add}  %9 = load i32, ptr %5, align 4" [  weight=0 ];
+
+	"func{@add}  %9 = load i32, ptr %5, align 4" -> "func{@add}  ret i32 %9" [  weight=0 ];
+
+	"func{@add}  ret i32 %9" [  weight=0 ];
+
+	"func{@add}  ret i32 %9" -> "func{main}  store i32 %6, ptr %3, align 4" [  weight=0 ];
+
+	"@exit" [  weight=0 ];
+
+	"entry" [  weight=0 ];
+
+	"entry" -> "@main()" [  weight=0 ];
+
+	"func{@add}  %5 = alloca i32, align 4" [  weight=0 ];
+
+	"func{@add}  %5 = alloca i32, align 4" -> "func{@add}  store i32 %0, ptr %3, align 4" [  weight=0 ];
+
+	"@main()" [  weight=0 ];
+
+	"@main()" -> "func{main}  %1 = alloca i32, align 4" [  weight=0 ];
+
+	"func{main}  ret i32 0" [  weight=0 ];
+
+	"func{main}  ret i32 0" -> "@exit" [  weight=0 ];
+
+	"func{main}  store i32 %6, ptr %3, align 4" [  weight=0 ];
+
+	"func{main}  store i32 %6, ptr %3, align 4" -> "func{main}  %7 = load i32, ptr %3, align 4" [  weight=0 ];
+
+	"func{main}  %5 = load i32, ptr %2, align 4" [  weight=0 ];
+
+	"func{main}  %5 = load i32, ptr %2, align 4" -> "func{main}  %6 = call i32 @add(i32 noundef %4, i32 noundef %5)" [  weight=0 ];
+
+	"func{main}  %6 = call i32 @add(i32 noundef %4, i32 noundef %5)" [  weight=0 ];
+
+	"func{main}  %6 = call i32 @add(i32 noundef %4, i32 noundef %5)" -> "@add(i32 noundef %0, i32 noundef %1) " [  weight=0 ];
+
+	"func{@add}  %4 = alloca i32, align 4" [  weight=0 ];
+
+	"func{@add}  %4 = alloca i32, align 4" -> "func{@add}  %5 = alloca i32, align 4" [  weight=0 ];
+
+	"func{main}  store i32 5, ptr %2, align 4" [  weight=0 ];
+
+	"func{main}  store i32 5, ptr %2, align 4" -> "func{main}  %4 = load i32, ptr %1, align 4" [  weight=0 ];
+
+	"func{@add}  store i32 %8, ptr %5, align 4" [  weight=0 ];
+
+	"func{@add}  store i32 %8, ptr %5, align 4" -> "func{@add}  %9 = load i32, ptr %5, align 4" [  weight=0 ];
+
+}
